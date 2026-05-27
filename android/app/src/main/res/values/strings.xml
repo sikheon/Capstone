@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">FL Client</string>
+    <string name="header_subtitle">군산대 캡스톤 · 데굴데굴</string>
+
+    <string name="state_idle">대기 중</string>
+    <string name="state_joined">참여 중</string>
+    <string name="state_training">학습 중…</string>
+
+    <string name="hint_idle">배터리·Wi-Fi·충전 상태가 갖춰지면 자동으로 학습에 참여합니다.</string>
+    <string name="hint_joined">백그라운드에서 조건 충족 시 학습합니다. 화면을 꺼도 됩니다.</string>
+
+    <string name="kpi_contributed">내 기여 라운드</string>
+    <string name="kpi_my_acc">내 마지막 정확도</string>
+    <string name="kpi_global_acc">글로벌 정확도</string>
+
+    <string name="cond_title">학습 조건</string>
+    <string name="cond_charging">충전 중</string>
+    <string name="cond_wifi">Wi-Fi 연결</string>
+    <string name="cond_battery">배터리 50% 이상</string>
+    <string name="cond_idle">화면 꺼짐 / 유휴</string>
+
+    <string name="action_run_once">지금 한 번 학습 (조건 무시)</string>
+    <string name="action_settings">설정</string>
+
+    <string name="settings_title">설정</string>
+    <string name="settings_server">서버 URL</string>
+    <string name="settings_reprovision">자격증명 다시 발급</string>
+    <string name="settings_save">저장</string>
+    <string name="server_url_hint">https://kunsan-fl.loca.lt</string>
+
+    <string name="footer_client_id">클라이언트 ID</string>
+    <string name="footer_not_provisioned">아직 발급되지 않음</string>
+
+    <string name="spark_title">내 학습 정확도 추이</string>
+    <string name="spark_empty">아직 학습 기록이 없습니다</string>
+
+    <string name="fleet_title">함께 학습 중인 디바이스</string>
+    <string name="fleet_android">안드로이드</string>
+    <string name="fleet_edge">엣지 (Pi/Jetson)</string>
+    <string name="fleet_cli">CLI</string>
+    <string name="fleet_sim">시뮬레이터</string>
+    <string name="fleet_offline">서버 응답 없음</string>
+
+    <string name="collector_title">백그라운드 데이터 수집</string>
+    <string name="collector_none_hint">현재 비활성 — 정적 데이터셋 사용 중</string>
+    <string name="collector_ready">학습 준비됨</string>
+    <string name="collector_buffering">샘플 수집 중</string>
+    <string name="settings_collector">수집기</string>
+</resources>

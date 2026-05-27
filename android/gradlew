@@ -1,0 +1,35 @@
+#!/bin/sh
+#
+# Standard Gradle wrapper launch script. Downloads gradle-wrapper.jar on first
+# run (see gradle/wrapper/gradle-wrapper.properties) and forwards args to it.
+# Permission bit must be executable (`chmod +x gradlew`).
+
+set -e
+
+DIR="$(cd "$(dirname "$0")" && pwd)"
+WRAPPER_JAR="$DIR/gradle/wrapper/gradle-wrapper.jar"
+
+if [ ! -f "$WRAPPER_JAR" ]; then
+    echo "==> gradle-wrapper.jar missing — downloading"
+    mkdir -p "$DIR/gradle/wrapper"
+    URL="https://raw.githubusercontent.com/gradle/gradle/v8.7.0/gradle/wrapper/gradle-wrapper.jar"
+    if command -v curl >/dev/null 2>&1; then
+        curl -fsSL "$URL" -o "$WRAPPER_JAR"
+    elif command -v wget >/dev/null 2>&1; then
+        wget -q "$URL" -O "$WRAPPER_JAR"
+    else
+        echo "need curl or wget to fetch gradle-wrapper.jar"; exit 1
+    fi
+fi
+
+JAVA="${JAVA_HOME:-}"
+if [ -n "$JAVA" ] && [ -x "$JAVA/bin/java" ]; then
+    JAVA="$JAVA/bin/java"
+else
+    JAVA="$(command -v java)"
+fi
+if [ -z "$JAVA" ]; then
+    echo "JDK 17+ required (install temurin-17-jdk or set JAVA_HOME)"; exit 1
+fi
+
+exec "$JAVA" -classpath "$WRAPPER_JAR" org.gradle.wrapper.GradleWrapperMain "$@"

@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- light + violet (HSL 263 70% 53% — 웹 대시보드와 통일) -->
+    <color name="brand_violet">#6E2BD9</color>
+    <color name="brand_violet_dim">#9B6BE6</color>
+    <color name="brand_violet_soft">#F1ECFE</color>
+
+    <color name="bg">#FAFAFB</color>
+    <color name="surface">#FFFFFF</color>
+    <color name="ink">#1B1B26</color>
+    <color name="ink_muted">#5A5A6B</color>
+    <color name="hairline">#E6E6EE</color>
+
+    <color name="ok">#10A37F</color>
+    <color name="warn">#D97706</color>
+    <color name="bad">#DC2626</color>
+</resources>

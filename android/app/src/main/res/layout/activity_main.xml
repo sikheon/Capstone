@@ -1,0 +1,369 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fillViewport="true"
+    android:background="@color/bg">
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:padding="20dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <!-- ─── header ─── -->
+        <LinearLayout
+            android:orientation="horizontal"
+            android:gravity="center_vertical"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="20dp">
+
+            <LinearLayout
+                android:orientation="vertical"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="wrap_content">
+                <TextView
+                    android:text="@string/app_name"
+                    android:textColor="@color/ink"
+                    android:textSize="22sp"
+                    android:textStyle="bold"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"/>
+                <TextView
+                    android:text="@string/header_subtitle"
+                    android:textColor="@color/ink_muted"
+                    android:textSize="12sp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"/>
+            </LinearLayout>
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/settingsBtn"
+                style="@style/Widget.Material3.Button.TextButton"
+                android:text="@string/action_settings"
+                android:textColor="@color/brand_violet"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+        </LinearLayout>
+
+        <!-- ─── hero ─── -->
+        <com.google.android.material.card.MaterialCardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:cardCornerRadius="20dp"
+            app:cardElevation="0dp"
+            app:strokeWidth="1dp"
+            app:strokeColor="@color/hairline"
+            app:cardBackgroundColor="@color/surface"
+            android:layout_marginBottom="14dp">
+
+            <LinearLayout
+                android:orientation="vertical"
+                android:padding="22dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <LinearLayout
+                    android:orientation="horizontal"
+                    android:gravity="center_vertical"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <View
+                        android:id="@+id/statusDot"
+                        android:layout_width="10dp"
+                        android:layout_height="10dp"
+                        android:background="@drawable/dot_idle"
+                        android:layout_marginEnd="10dp"/>
+                    <TextView
+                        android:id="@+id/stateLabel"
+                        android:text="@string/state_idle"
+                        android:textColor="@color/ink"
+                        android:textSize="18sp"
+                        android:textStyle="bold"
+                        android:layout_width="0dp"
+                        android:layout_weight="1"
+                        android:layout_height="wrap_content"/>
+
+                    <com.google.android.material.materialswitch.MaterialSwitch
+                        android:id="@+id/joinSwitch"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"/>
+                </LinearLayout>
+
+                <TextView
+                    android:id="@+id/stateHint"
+                    android:text="@string/hint_idle"
+                    android:textColor="@color/ink_muted"
+                    android:textSize="13sp"
+                    android:layout_marginTop="8dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"/>
+
+                <com.google.android.material.progressindicator.LinearProgressIndicator
+                    android:id="@+id/progressBar"
+                    style="@style/Widget.Material3.LinearProgressIndicator"
+                    android:layout_width="match_parent"
+                    android:layout_height="4dp"
+                    android:layout_marginTop="10dp"
+                    android:indeterminate="true"
+                    android:visibility="gone"
+                    app:indicatorColor="@color/brand_violet"
+                    app:trackColor="@color/brand_violet_soft"/>
+            </LinearLayout>
+        </com.google.android.material.card.MaterialCardView>
+
+        <!-- ─── KPI strip ─── -->
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="14dp"
+            android:baselineAligned="false">
+
+            <include layout="@layout/include_kpi" android:id="@+id/kpiContributed"
+                     android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1"/>
+            <Space android:layout_width="10dp" android:layout_height="match_parent"/>
+            <include layout="@layout/include_kpi" android:id="@+id/kpiMyAcc"
+                     android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1"/>
+            <Space android:layout_width="10dp" android:layout_height="match_parent"/>
+            <include layout="@layout/include_kpi" android:id="@+id/kpiGlobalAcc"
+                     android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1"/>
+        </LinearLayout>
+
+        <!-- ─── sparkline: my-training trend ─── -->
+        <com.google.android.material.card.MaterialCardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:cardCornerRadius="16dp"
+            app:cardElevation="0dp"
+            app:strokeWidth="1dp"
+            app:strokeColor="@color/hairline"
+            app:cardBackgroundColor="@color/surface"
+            android:layout_marginBottom="14dp">
+
+            <LinearLayout
+                android:orientation="vertical"
+                android:padding="18dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <LinearLayout
+                    android:orientation="horizontal"
+                    android:gravity="center_vertical"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+                    <TextView
+                        android:text="@string/spark_title"
+                        android:textColor="@color/ink_muted"
+                        android:textSize="11sp"
+                        android:letterSpacing="0.08"
+                        android:textStyle="bold"
+                        android:layout_width="0dp"
+                        android:layout_weight="1"
+                        android:layout_height="wrap_content"/>
+                    <TextView
+                        android:id="@+id/sparkRange"
+                        android:textColor="@color/ink_muted"
+                        android:textSize="11sp"
+                        android:fontFamily="monospace"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"/>
+                </LinearLayout>
+
+                <com.capstone.fl.ui.SparklineView
+                    android:id="@+id/sparkline"
+                    android:layout_width="match_parent"
+                    android:layout_height="80dp"
+                    android:layout_marginTop="10dp"/>
+            </LinearLayout>
+        </com.google.android.material.card.MaterialCardView>
+
+        <!-- ─── collector status (Gboard-pattern slot) ─── -->
+        <com.google.android.material.card.MaterialCardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:cardCornerRadius="16dp"
+            app:cardElevation="0dp"
+            app:strokeWidth="1dp"
+            app:strokeColor="@color/hairline"
+            app:cardBackgroundColor="@color/surface"
+            android:layout_marginBottom="14dp">
+
+            <LinearLayout
+                android:orientation="vertical"
+                android:padding="18dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <LinearLayout
+                    android:orientation="horizontal"
+                    android:gravity="center_vertical"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+                    <TextView
+                        android:text="@string/collector_title"
+                        android:textColor="@color/ink_muted"
+                        android:textSize="11sp"
+                        android:letterSpacing="0.08"
+                        android:textStyle="bold"
+                        android:layout_width="0dp"
+                        android:layout_weight="1"
+                        android:layout_height="wrap_content"/>
+                    <TextView
+                        android:id="@+id/collectorName"
+                        android:textColor="@color/brand_violet"
+                        android:textSize="11sp"
+                        android:fontFamily="monospace"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"/>
+                </LinearLayout>
+
+                <TextView
+                    android:id="@+id/collectorCount"
+                    android:textColor="@color/ink"
+                    android:textSize="20sp"
+                    android:textStyle="bold"
+                    android:layout_marginTop="6dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="0 / 0"/>
+
+                <com.google.android.material.progressindicator.LinearProgressIndicator
+                    android:id="@+id/collectorBar"
+                    style="@style/Widget.Material3.LinearProgressIndicator"
+                    android:layout_width="match_parent"
+                    android:layout_height="4dp"
+                    android:layout_marginTop="6dp"
+                    android:indeterminate="false"
+                    android:max="100"
+                    app:indicatorColor="@color/brand_violet"
+                    app:trackColor="@color/brand_violet_soft"/>
+
+                <TextView
+                    android:id="@+id/collectorHint"
+                    android:textColor="@color/ink_muted"
+                    android:textSize="12sp"
+                    android:layout_marginTop="6dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"/>
+            </LinearLayout>
+        </com.google.android.material.card.MaterialCardView>
+
+        <!-- ─── fleet: who else is participating ─── -->
+        <com.google.android.material.card.MaterialCardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:cardCornerRadius="16dp"
+            app:cardElevation="0dp"
+            app:strokeWidth="1dp"
+            app:strokeColor="@color/hairline"
+            app:cardBackgroundColor="@color/surface"
+            android:layout_marginBottom="14dp">
+
+            <LinearLayout
+                android:orientation="vertical"
+                android:padding="18dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:text="@string/fleet_title"
+                    android:textColor="@color/ink_muted"
+                    android:textSize="11sp"
+                    android:letterSpacing="0.08"
+                    android:textStyle="bold"
+                    android:layout_marginBottom="12dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"/>
+
+                <LinearLayout
+                    android:id="@+id/fleetRow"
+                    android:orientation="horizontal"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:baselineAligned="false">
+
+                    <include layout="@layout/include_fleet_chip" android:id="@+id/fleetAndroid"
+                             android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1"/>
+                    <Space android:layout_width="10dp" android:layout_height="match_parent"/>
+                    <include layout="@layout/include_fleet_chip" android:id="@+id/fleetEdge"
+                             android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1"/>
+                    <Space android:layout_width="10dp" android:layout_height="match_parent"/>
+                    <include layout="@layout/include_fleet_chip" android:id="@+id/fleetCli"
+                             android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1"/>
+                </LinearLayout>
+
+                <TextView
+                    android:id="@+id/fleetOffline"
+                    android:text="@string/fleet_offline"
+                    android:textColor="@color/ink_muted"
+                    android:textSize="12sp"
+                    android:visibility="gone"
+                    android:layout_marginTop="8dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"/>
+            </LinearLayout>
+        </com.google.android.material.card.MaterialCardView>
+
+        <!-- ─── conditions card ─── -->
+        <com.google.android.material.card.MaterialCardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:cardCornerRadius="16dp"
+            app:cardElevation="0dp"
+            app:strokeWidth="1dp"
+            app:strokeColor="@color/hairline"
+            app:cardBackgroundColor="@color/surface"
+            android:layout_marginBottom="14dp">
+
+            <LinearLayout
+                android:orientation="vertical"
+                android:padding="18dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:text="@string/cond_title"
+                    android:textColor="@color/ink_muted"
+                    android:textSize="11sp"
+                    android:letterSpacing="0.08"
+                    android:textStyle="bold"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="12dp"/>
+
+                <include layout="@layout/include_cond_row" android:id="@+id/condCharging"
+                         android:layout_width="match_parent" android:layout_height="wrap_content"/>
+                <include layout="@layout/include_cond_row" android:id="@+id/condWifi"
+                         android:layout_width="match_parent" android:layout_height="wrap_content"/>
+                <include layout="@layout/include_cond_row" android:id="@+id/condBattery"
+                         android:layout_width="match_parent" android:layout_height="wrap_content"/>
+                <include layout="@layout/include_cond_row" android:id="@+id/condIdle"
+                         android:layout_width="match_parent" android:layout_height="wrap_content"/>
+            </LinearLayout>
+        </com.google.android.material.card.MaterialCardView>
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/runOnceBtn"
+            style="@style/Widget.Material3.Button.OutlinedButton"
+            android:text="@string/action_run_once"
+            app:strokeColor="@color/brand_violet"
+            android:textColor="@color/brand_violet"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="14dp"/>
+
+        <TextView
+            android:id="@+id/clientIdLabel"
+            android:textColor="@color/ink_muted"
+            android:textSize="11sp"
+            android:textIsSelectable="true"
+            android:fontFamily="monospace"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+    </LinearLayout>
+</ScrollView>
