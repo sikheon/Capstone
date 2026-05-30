@@ -1,0 +1,34 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "fl-client"
+version = "0.1.0"
+description = "Federated-learning edge client for the Kunsan-FL capstone (Raspberry Pi / Jetson / x86 Linux)."
+readme = "README.md"
+requires-python = ">=3.10"
+license = { text = "MIT" }
+authors = [{ name = "데굴데굴 (Kunsan SW)" }]
+dependencies = [
+  "httpx>=0.27",
+  "numpy>=1.24",
+  "psutil>=5.9",
+  "torch>=2.2",
+  "torchvision>=0.17",
+]
+
+[project.scripts]
+fl-client = "client.main:main"
+
+[tool.setuptools]
+packages = [
+  "client",
+  "client.algorithms",
+  "client.datasets",
+  "client.models",
+]
+package-dir = { "client" = "." }
+
+[tool.setuptools.package-data]
+client = ["systemd/*.service", "README.md"]

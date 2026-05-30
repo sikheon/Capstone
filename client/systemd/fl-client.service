@@ -1,0 +1,19 @@
+[Unit]
+Description=Kunsan FL edge client
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+Type=simple
+# pipx 설치 경로 (또는 본인 venv의 bin 경로)
+ExecStart=/usr/local/bin/fl-client --server https://kunsan-fl.loca.lt
+Restart=always
+RestartSec=5
+User=pi
+Environment=PYTHONUNBUFFERED=1
+Environment=PYTHONIOENCODING=utf-8
+# 디바이스 라벨 기본값 (원하면 환경별로 바꿔둘 것)
+Environment=FL_CLIENT_KIND=edge
+
+[Install]
+WantedBy=multi-user.target
