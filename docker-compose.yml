@@ -1,0 +1,30 @@
+# One-line stand-up:   docker compose up --build
+# Backend at  http://localhost:8000   (REST + WS)
+# Dashboard at http://localhost:5173  (nginx-served Vite build)
+#
+# To use a different server URL inside the dashboard (e.g. behind a proxy),
+# override VITE_SERVER_URL via the build arg below or in the browser UI.
+
+services:
+  backend:
+    build:
+      context: ./backend
+    container_name: fl-backend
+    environment:
+      FL_ADMIN_USER: ${FL_ADMIN_USER:-admin}
+      FL_ADMIN_PASS: ${FL_ADMIN_PASS:-admin}
+    ports:
+      - "8000:8000"
+    restart: unless-stopped
+
+  frontend:
+    build:
+      context: ./frontend
+      args:
+        VITE_SERVER_URL: ${VITE_SERVER_URL:-http://localhost:8000}
+    container_name: fl-frontend
+    ports:
+      - "5173:80"
+    depends_on:
+      - backend
+    restart: unless-stopped
