@@ -1,0 +1,7 @@
+{
+  "tool_name": "PowerShell",
+  "tool_input_preview": "{\"command\":\"adb shell run-as com.capstone.fl cat /data/data/com.capstone.fl/shared_prefs/fl_prefs.xml 2>&1; Write-Host '---'; adb shell dumpsys activity activities | Select-String -Pattern 'capstone' ...",
+  "error": "Exit code 1\n\u001b[31;1mcat: /data/data/com.capstone.fl/shared_prefs/fl_prefs.xml: No such file or directory\u001b[0m\r\n---\r\n\r\n  * Task{9ae5e9a #82 type=standard A=10317:com.\u001b[7mcapstone\u001b[0m.fl U=0 visible=true visibleRequested=true mode=fullscreen trans\u001b[0m\r\n\u001b[7m\u001b[0mlucent=false sz=1}\u001b[0m\r\n    topResumedActivity=ActivityRecord{140793669 u0 com.\u001b[7mcapstone\u001b[0m.fl/.MainActivity t82}\r\n    * Hist  #0: ActivityRecord{140793669 u0 com.\u001b[7mcapstone\u001b[0m.fl/.MainActivity t82}\r\n      packageName=com.\u001b[7mcapstone\u001b[...",
+  "timestamp": "2026-05-26T09:47:10.021Z",
+  "retry_count": 1
+}
