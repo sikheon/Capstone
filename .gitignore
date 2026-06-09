@@ -1,0 +1,55 @@
+# python
+__pycache__/
+*.pyc
+*.pyo
+.venv/
+.env
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+*.egg-info/
+dist/
+build/
+
+# node
+node_modules/
+package-lock.json
+yarn.lock
+.npm/
+
+# vite
+frontend/dist/
+
+# android
+android/.gradle/
+android/build/
+android/app/build/
+android/local.properties
+*.iml
+
+# ide
+.idea/
+.vscode/
+*.swp
+
+# OS
+.DS_Store
+Thumbs.db
+
+# secrets / data
+.flclient/
+*.joblib
+*.pt
+*.pth
+
+# misc
+*.log
+*.apk
+*.aab
+.flserver/
+ppt/_*
+
+# OMC (agent runtime state)
+.omc/
+**/.omc/
+sim.err

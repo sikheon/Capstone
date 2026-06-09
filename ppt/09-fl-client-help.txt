@@ -1,0 +1,18 @@
+usage: fl-client [-h] [--server SERVER] [--algo ALGO] [--model MODEL]
+                 [--dataset DATASET] [--epochs EPOCHS] [--reprovision]
+                 [--collector COLLECTOR]
+
+FL edge client (Raspberry Pi / Jetson)
+
+options:
+  -h, --help            show this help message and exit
+  --server SERVER       central server URL (overrides FL_SERVER_URL)
+  --algo ALGO
+  --model MODEL
+  --dataset DATASET
+  --epochs EPOCHS
+  --reprovision         discard saved credentials and request a fresh pair
+  --collector COLLECTOR
+                        background data collector name (see
+                        collectors.available()). 'none' means train on the
+                        static --dataset loader.
