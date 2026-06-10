@@ -1,5 +1,5 @@
 {
-  "name": "flctl",
+  "name": "@sikheon/flctl",
   "version": "0.1.0",
   "description": "[deprecated] read-only monitoring CLI for the FL coordinator. Linux participants should use the Python `fl-client` package in ../client/.",
   "type": "module",
@@ -11,12 +11,21 @@
   },
   "main": "src/index.js",
   "scripts": {
-    "start": "node bin/flctl.js"
+    "start": "node bin/flctl.js",
+    "prepublishOnly": "node bin/flctl.js --help"
   },
   "keywords": ["federated-learning", "fl", "cli", "capstone"],
   "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sikheon/Capstone.git",
+    "directory": "cli"
+  },
   "files": ["bin/", "src/", "README.md"],
   "os": ["linux", "darwin", "win32"],
+  "publishConfig": {
+    "access": "public"
+  },
   "dependencies": {
     "chalk": "^5.3.0",
     "cli-table3": "^0.6.5"

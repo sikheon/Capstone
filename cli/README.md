@@ -19,6 +19,25 @@ fl-client --server https://kunsan-fl.loca.lt
 자동으로 자격증명 발급 → 등록 → heartbeat → 라운드 선택 시 학습/업로드까지
 처리합니다. systemd 유닛 샘플은 `client/systemd/` 에 있습니다.
 
+## npm 배포 (자동)
+
+태그를 밀면 GitHub Actions가 npm에 publish 합니다 (`.github/workflows/npm-publish.yml`).
+
+```bash
+# 1) npmjs.com → Access Tokens → Automation 토큰 발급
+# 2) GitHub repo → Settings → Secrets → Actions 에 NPM_TOKEN 등록
+# 3) package.json version 올린 뒤 태그 푸시
+git tag flctl-v0.1.0
+git push origin flctl-v0.1.0
+```
+
+설치 (publish 후):
+
+```bash
+npm install -g @sikheon/flctl
+flctl --server https://kunsan-fl.loca.lt
+```
+
 ## 기존 사용자 정리
 
 `npm link`로 전역 설치했다면 다음으로 제거:
